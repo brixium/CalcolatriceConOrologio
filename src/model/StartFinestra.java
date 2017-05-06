@@ -5,15 +5,21 @@
  */
 package model;
 
+import view.Finestra;
+
 /**
  *
  * @author asolan.lorenzo
  */
 public class StartFinestra implements Runnable{
+    Finestra f;
 
+    public StartFinestra() {
+        
+    }
     @Override
     public void run() {
-        
+        this.f = new Finestra("Ciao");
     }
     
 }

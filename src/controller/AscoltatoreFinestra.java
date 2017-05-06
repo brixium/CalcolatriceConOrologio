@@ -26,7 +26,7 @@ public class AscoltatoreFinestra implements WindowListener{
 
     @Override
     public void windowClosed(WindowEvent we) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        we.getWindow().dispose();
     }
 
     @Override
