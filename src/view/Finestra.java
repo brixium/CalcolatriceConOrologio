@@ -8,6 +8,7 @@ package view;
 import controller.*;
 import java.awt.*;
 import javax.swing.*;
+import model.*;
 
 /**
  *
@@ -15,6 +16,7 @@ import javax.swing.*;
  */
 public class Finestra extends JFrame{
     AscoltatoreFinestra AF = new AscoltatoreFinestra();
+    Orologio or = new Orologio();
     JPanel JP1 = new JPanel();
     JPanel JP2 = new JPanel();
     JPanel JP3 = new JPanel();
@@ -24,14 +26,20 @@ public class Finestra extends JFrame{
     JButton JB10 = new JButton();
     JButton JB11 = new JButton();
     JButton JB12 = new JButton();
-    //JTextArea JTA = new JTextArea();
+    JTextField ORO = new JTextField();
     JTextField JTF = new JTextField();
     public Finestra(String s){
         super(s);
-        
+        ORO.setColumns(5);
+        ORO.setSize(50, 60);
+        ORO.setText(or.getD());
+        ORO.setEditable(false);
+        JTF.setColumns(25);
+        JTF.setSize(350, 60);
         JTF.setEditable(false);
+        JTF.setText("Numeri qui");
         JP1.add(JTF);
-        JTF.setText("Hello");
+        JP1.add(ORO);
         add(JP1);
         add(JP2);
         add(JP3);
