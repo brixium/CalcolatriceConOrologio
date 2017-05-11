@@ -12,7 +12,7 @@ import view.Finestra;
  * @author asolan.lorenzo
  */
 public class StartFinestra implements Runnable{
-    Finestra f;
+    private Finestra f;
 
     public StartFinestra() {
         
@@ -21,5 +21,5 @@ public class StartFinestra implements Runnable{
     public void run() {
         this.f = new Finestra("Ciao");
     }
-    
+
 }

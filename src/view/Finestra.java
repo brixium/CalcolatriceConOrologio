@@ -5,6 +5,8 @@ package view;
 
 import controller.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 import model.*;
 
@@ -48,6 +50,7 @@ public class Finestra extends JFrame{
     JButton JBsqrt = new JButton("√");
     JButton JBsqrd = new JButton("x^2");
     
+    String primoTermine;
     public Finestra(String s){
         super(s);
         ORO.setColumns(5);
@@ -67,6 +70,34 @@ public class Finestra extends JFrame{
         JP2.add(JP23);
         JP2.add(JP24);
         */
+        JBp.addActionListener(
+            new ActionListener(){
+                public void actionPerformed( ActionEvent e){   
+                    primoTermine=JTF.getText();
+                }
+            }
+        );
+        JBm.addActionListener(
+            new ActionListener(){
+                public void actionPerformed( ActionEvent e){   
+                    primoTermine=JTF.getText();
+                }
+            }
+        );
+        JBx.addActionListener(
+            new ActionListener(){
+                public void actionPerformed( ActionEvent e){   
+                    primoTermine=JTF.getText();
+                }
+            }
+        );
+        JBd.addActionListener(
+            new ActionListener(){
+                public void actionPerformed( ActionEvent e){   
+                    primoTermine=JTF.getText();
+                }
+            }
+        );
         JP2.add(JBp);
         JP2.add(JBm);
         JP2.add(JBx);
@@ -95,7 +126,11 @@ public class Finestra extends JFrame{
         setLayout(new GridLayout(2, 1));
         setVisible(true);
         
-        
-        
+    }
+    public String getTextField(){
+        return JTF.getText();
+    }
+    public void setTextField(String replace){
+        JTF.setText(replace);
     }
 }
