@@ -51,6 +51,7 @@ public class Finestra extends JFrame{
     JButton JBsqrd = new JButton("x^2");
     
     String primoTermine;
+    String ope; // + - * /
     public Finestra(String s){
         super(s);
         ORO.setColumns(5);
@@ -74,6 +75,8 @@ public class Finestra extends JFrame{
             new ActionListener(){
                 public void actionPerformed( ActionEvent e){   
                     primoTermine=JTF.getText();
+                    ope="+";
+                    JTF.setText("");
                 }
             }
         );
@@ -81,6 +84,8 @@ public class Finestra extends JFrame{
             new ActionListener(){
                 public void actionPerformed( ActionEvent e){   
                     primoTermine=JTF.getText();
+                    ope="-";
+                    JTF.setText("");
                 }
             }
         );
@@ -88,6 +93,8 @@ public class Finestra extends JFrame{
             new ActionListener(){
                 public void actionPerformed( ActionEvent e){   
                     primoTermine=JTF.getText();
+                    ope="*";
+                    JTF.setText("");
                 }
             }
         );
@@ -95,9 +102,121 @@ public class Finestra extends JFrame{
             new ActionListener(){
                 public void actionPerformed( ActionEvent e){   
                     primoTermine=JTF.getText();
+                    ope="/";
+                    JTF.setText("");
                 }
             }
         );
+        JBe.addActionListener(
+            new ActionListener(){
+                public void actionPerformed( ActionEvent e){   
+                    primoTermine=JTF.getText();
+                    JTF.setText("Risultato: ");
+                }
+            }
+        );
+        JBc.addActionListener(
+            new ActionListener(){
+                public void actionPerformed( ActionEvent e){
+                    primoTermine="";
+                    JTF.setText("");
+                }
+            }
+        );
+        JBpi.addActionListener(
+            new ActionListener(){
+                public void actionPerformed( ActionEvent e){   
+                    JTF.setText("3,14");
+                }
+            }
+        );
+        JBsqrt.addActionListener(
+            new ActionListener(){
+                public void actionPerformed( ActionEvent e){
+                    JTF.setText(""+Math.sqrt(Double.parseDouble(JTF.getText())));
+                }
+            }
+        );
+        JBsqrd.addActionListener(
+            new ActionListener(){
+                public void actionPerformed( ActionEvent e){
+                    JTF.setText(""+(Double.parseDouble(JTF.getText()))*Double.parseDouble(JTF.getText()));
+                }
+            }
+        );
+        JB0.addActionListener(
+            new ActionListener(){
+                public void actionPerformed( ActionEvent e){
+                    if(!JTF.getText().equals("")){
+                        JTF.setText(JTF.getText()+"0");
+                    }
+                }
+            }
+        );
+        JB1.addActionListener(
+            new ActionListener(){
+                public void actionPerformed( ActionEvent e){
+                    JTF.setText(JTF.getText()+"1");
+                }
+            }
+        );
+        JB2.addActionListener(
+            new ActionListener(){
+                public void actionPerformed( ActionEvent e){
+                    JTF.setText(JTF.getText()+"2");
+                }
+            }
+        );
+        JB3.addActionListener(
+            new ActionListener(){
+                public void actionPerformed( ActionEvent e){
+                    JTF.setText(JTF.getText()+"3");
+                }
+            }
+        );
+        JB4.addActionListener(
+            new ActionListener(){
+                public void actionPerformed( ActionEvent e){
+                    JTF.setText(JTF.getText()+"4");
+                }
+            }
+        );
+        JB5.addActionListener(
+            new ActionListener(){
+                public void actionPerformed( ActionEvent e){
+                    JTF.setText(JTF.getText()+"5");
+                }
+            }
+        );
+        JB6.addActionListener(
+            new ActionListener(){
+                public void actionPerformed( ActionEvent e){
+                    JTF.setText(JTF.getText()+"6");
+                }
+            }
+        );
+        JB7.addActionListener(
+            new ActionListener(){
+                public void actionPerformed( ActionEvent e){
+                    JTF.setText(JTF.getText()+"7");
+                }
+            }
+        );
+        JB8.addActionListener(
+            new ActionListener(){
+                public void actionPerformed( ActionEvent e){
+                    JTF.setText(JTF.getText()+"8");
+                }
+            }
+        );
+        JB9.addActionListener(
+            new ActionListener(){
+                public void actionPerformed( ActionEvent e){
+                    JTF.setText(JTF.getText()+"9");
+                }
+            }
+        );
+        
         JP2.add(JBp);
         JP2.add(JBm);
         JP2.add(JBx);
