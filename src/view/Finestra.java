@@ -71,6 +71,13 @@ public class Finestra extends JFrame{
         JP2.add(JP23);
         JP2.add(JP24);
         */
+        ActionListener viaTempo = new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                ORO.setText(or.getD());
+            }
+        };
+        Timer t = new Timer(1000, viaTempo);
+        t.start();
         JBp.addActionListener(
             new ActionListener(){
                 public void actionPerformed( ActionEvent e){   
@@ -110,12 +117,27 @@ public class Finestra extends JFrame{
         JBe.addActionListener(
             new ActionListener(){
                 public void actionPerformed( ActionEvent e){   
-                    primoTermine=JTF.getText();
-                    JTF.setText("Risultato: ");
+                    String secondoTermine=JTF.getText();
+                    if(ope.equals("+")){
+                        double r=Double.parseDouble(primoTermine)+Double.parseDouble(secondoTermine);
+                        JTF.setText(r+"");
+                    }else if(ope.equals("-")){
+                        double r=Double.parseDouble(primoTermine)-Double.parseDouble(secondoTermine);
+                        JTF.setText(r+"");
+                    }else if(ope.equals("*")){
+                        double r=Double.parseDouble(primoTermine)*Double.parseDouble(secondoTermine);
+                        JTF.setText(r+"");
+                    }else if(ope.equals("/")){
+                        double r=Double.parseDouble(primoTermine)/Double.parseDouble(secondoTermine);
+                        JTF.setText(r+"");
+                    }else{
+                        JTF.setText("NAN");
+                    }
+                    
                 }
             }
         );
-        JBc.addActionListener(
+        JBw.addActionListener(
             new ActionListener(){
                 public void actionPerformed( ActionEvent e){
                     primoTermine="";
@@ -123,10 +145,17 @@ public class Finestra extends JFrame{
                 }
             }
         );
+        JBc.addActionListener(
+            new ActionListener(){
+                public void actionPerformed( ActionEvent e){
+                    JTF.setText(JTF.getText()+".");
+                }
+            }
+        );
         JBpi.addActionListener(
             new ActionListener(){
                 public void actionPerformed( ActionEvent e){   
-                    JTF.setText("3,14");
+                    JTF.setText("3.14");
                 }
             }
         );
@@ -216,7 +245,7 @@ public class Finestra extends JFrame{
                 }
             }
         );
-        
+            
         JP2.add(JBp);
         JP2.add(JBm);
         JP2.add(JBx);

@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.time.*;
 import java.util.Calendar;
@@ -14,13 +16,15 @@ import java.util.Calendar;
  * @author user
  */
 public class Orologio {
-    Date da;
-    public Orologio(){
-        da = new Date();
-    }
+    DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+    Date da=new Date();
+    String b="";
+
     public String getD(){
-        String r = da.toString();
-        r= r.substring(11);
-        return r;
+        b="";
+        b= b+""+LocalDateTime.now().getHour();
+        b= b+":"+LocalDateTime.now().getMinute();
+        b= b+":"+LocalDateTime.now().getSecond();
+        return b;
     }
 }

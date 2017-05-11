@@ -18,6 +18,5 @@ public class TPSIEseLab7CalcOrol {
      */
     public static void main(String[] args) {
         (new Thread(new StartFinestra())).start();
-    }
-    
+    } 
 }
