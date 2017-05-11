@@ -19,7 +19,7 @@ public class StartFinestra implements Runnable{
     }
     @Override
     public void run() {
-        this.f = new Finestra("Ciao");
+        this.f = new Finestra("Calcolatrice di Asolan Lorenzo");
     }
 
 }
