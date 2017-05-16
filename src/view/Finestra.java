@@ -42,6 +42,7 @@ public class Finestra extends JFrame{
     private JButton JBsqrd = new JButton("x^2");
     
     private String primoTermine;
+    private String secondoTermine="";
     private String ope; // + - * /
     public Finestra(String s){
         super(s);
@@ -105,19 +106,23 @@ public class Finestra extends JFrame{
             new ActionListener(){
                 public void actionPerformed( ActionEvent e){
                     try{
-                        String secondoTermine=JTF.getText();
+                        if(secondoTermine.isEmpty()){
+                            secondoTermine=JTF.getText();
+                        }
                         if(ope.equals("+")){
                             double r=Double.parseDouble(primoTermine)+Double.parseDouble(secondoTermine);
                             JTF.setText(r+"");
                         }else if(ope.equals("-")){
                             double r=Double.parseDouble(primoTermine)-Double.parseDouble(secondoTermine);
-                            JTF.setText(r+"");
+                            primoTermine=r+"";
+                            JTF.setText(primoTermine);
                         }else if(ope.equals("*")){
                             double r=Double.parseDouble(primoTermine)*Double.parseDouble(secondoTermine);
                             JTF.setText(r+"");
                         }else if(ope.equals("/")){
                             double r=Double.parseDouble(primoTermine)/Double.parseDouble(secondoTermine);
-                            JTF.setText(r+"");
+                            primoTermine=r+"";
+                            JTF.setText(primoTermine);
                         }else{
                             JTF.setText("NAN");
                         }
@@ -238,7 +243,7 @@ public class Finestra extends JFrame{
                 }
             }
         );
-            
+        
         JP2.add(JBplus);
         JP2.add(JBminus);
         JP2.add(JBmultiply);
