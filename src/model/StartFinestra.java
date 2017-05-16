@@ -13,10 +13,6 @@ import view.Finestra;
  */
 public class StartFinestra implements Runnable{
     private Finestra f;
-
-    public StartFinestra() {
-        
-    }
     @Override
     public void run() {
         this.f = new Finestra("Calcolatrice di Asolan Lorenzo");

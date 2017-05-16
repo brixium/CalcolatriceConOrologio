@@ -22,9 +22,21 @@ public class Orologio {
 
     public String getD(){
         b="";
-        b= b+""+LocalDateTime.now().getHour();
-        b= b+":"+LocalDateTime.now().getMinute();
-        b= b+":"+LocalDateTime.now().getSecond();
+        if(LocalDateTime.now().getHour()>=0 && LocalDateTime.now().getHour()<10){
+            b= b+"0"+LocalDateTime.now().getHour();
+        }else{
+            b= b+""+LocalDateTime.now().getHour();
+        }
+        if(LocalDateTime.now().getMinute()>=0 && LocalDateTime.now().getMinute()<10){
+            b= b+":0"+LocalDateTime.now().getMinute();
+        }else{
+            b= b+":"+LocalDateTime.now().getMinute();
+        }
+        if(LocalDateTime.now().getSecond()>=0 && LocalDateTime.now().getSecond()<10){
+            b= b+":0"+LocalDateTime.now().getSecond();
+        }else{
+            b= b+":"+LocalDateTime.now().getSecond();
+        }
         return b;
     }
 }

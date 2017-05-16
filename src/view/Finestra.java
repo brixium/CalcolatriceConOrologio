@@ -3,7 +3,6 @@
  */
 package view;
 
-import controller.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,7 +14,6 @@ import model.*;
  * @author asolan.lorenzo
  */
 public class Finestra extends JFrame{
-    AscoltatoreFinestra AF = new AscoltatoreFinestra();
     Orologio or = new Orologio();
     JPanel JP1 = new JPanel();
     JPanel JP2 = new JPanel();
@@ -65,12 +63,7 @@ public class Finestra extends JFrame{
         JP1.add(JTF);
         JP1.add(ORO);
         JP2.setLayout(new GridLayout(5, 3));
-        /*
-        JP2.add(JP21);
-        JP2.add(JP22);
-        JP2.add(JP23);
-        JP2.add(JP24);
-        */
+        
         ActionListener viaTempo = new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 ORO.setText(or.getD());
@@ -78,6 +71,8 @@ public class Finestra extends JFrame{
         };
         Timer t = new Timer(1000, viaTempo);
         t.start();
+        
+        
         JBp.addActionListener(
             new ActionListener(){
                 public void actionPerformed( ActionEvent e){   
@@ -116,24 +111,27 @@ public class Finestra extends JFrame{
         );
         JBe.addActionListener(
             new ActionListener(){
-                public void actionPerformed( ActionEvent e){   
-                    String secondoTermine=JTF.getText();
-                    if(ope.equals("+")){
-                        double r=Double.parseDouble(primoTermine)+Double.parseDouble(secondoTermine);
-                        JTF.setText(r+"");
-                    }else if(ope.equals("-")){
-                        double r=Double.parseDouble(primoTermine)-Double.parseDouble(secondoTermine);
-                        JTF.setText(r+"");
-                    }else if(ope.equals("*")){
-                        double r=Double.parseDouble(primoTermine)*Double.parseDouble(secondoTermine);
-                        JTF.setText(r+"");
-                    }else if(ope.equals("/")){
-                        double r=Double.parseDouble(primoTermine)/Double.parseDouble(secondoTermine);
-                        JTF.setText(r+"");
-                    }else{
-                        JTF.setText("NAN");
+                public void actionPerformed( ActionEvent e){
+                    try{
+                        String secondoTermine=JTF.getText();
+                        if(ope.equals("+")){
+                            double r=Double.parseDouble(primoTermine)+Double.parseDouble(secondoTermine);
+                            JTF.setText(r+"");
+                        }else if(ope.equals("-")){
+                            double r=Double.parseDouble(primoTermine)-Double.parseDouble(secondoTermine);
+                            JTF.setText(r+"");
+                        }else if(ope.equals("*")){
+                            double r=Double.parseDouble(primoTermine)*Double.parseDouble(secondoTermine);
+                            JTF.setText(r+"");
+                        }else if(ope.equals("/")){
+                            double r=Double.parseDouble(primoTermine)/Double.parseDouble(secondoTermine);
+                            JTF.setText(r+"");
+                        }else{
+                            JTF.setText("NAN");
+                        }
+                    }catch(java.lang.NumberFormatException exc){
+                        System.err.println(exc);
                     }
-                    
                 }
             }
         );
@@ -148,7 +146,9 @@ public class Finestra extends JFrame{
         JBc.addActionListener(
             new ActionListener(){
                 public void actionPerformed( ActionEvent e){
-                    JTF.setText(JTF.getText()+".");
+                    if(!JTF.getText().contains(".")){
+                        JTF.setText(JTF.getText()+".");
+                    }
                 }
             }
         );
@@ -260,12 +260,12 @@ public class Finestra extends JFrame{
         JP2.add(JB2);
         JP2.add(JB1);
         JP2.add(JB0);
-        JP2.add(JBc);
-        JP2.add(JBe);
-        JP2.add(JBw);
+        JP2.add(JBc);        
         JP2.add(JBpi);
-        JP2.add(JBsqrd);
+        JP2.add(JBw);
         JP2.add(JBsqrt);
+        JP2.add(JBsqrd);
+        JP2.add(JBe);
         add(JP1);
         add(JP2);
         setSize(400,400);
