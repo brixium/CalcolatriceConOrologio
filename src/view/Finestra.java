@@ -8,48 +8,41 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import model.*;
-
 /**
  *
  * @author asolan.lorenzo
  */
 public class Finestra extends JFrame{
-    Orologio or = new Orologio();
-    JPanel JP1 = new JPanel();
-    JPanel JP2 = new JPanel();
-    JPanel JP21 = new JPanel();
-    JPanel JP22 = new JPanel();
-    JPanel JP23 = new JPanel();
-    JPanel JP24 = new JPanel();
-    JButton JB10 = new JButton();
-    JButton JB11 = new JButton();
-    JButton JB12 = new JButton();
-    JTextField ORO = new JTextField();
-    JTextField JTF = new JTextField();
     
-    JButton JB0 = new JButton("0");
-    JButton JB1 = new JButton("1");
-    JButton JB2 = new JButton("2");
-    JButton JB3 = new JButton("3");
-    JButton JB4 = new JButton("4");
-    JButton JB5 = new JButton("5");
-    JButton JB6 = new JButton("6");
-    JButton JB7 = new JButton("7");
-    JButton JB8 = new JButton("8");
-    JButton JB9 = new JButton("9");
-    JButton JBp = new JButton("+");
-    JButton JBm = new JButton("-");
-    JButton JBx = new JButton("*");
-    JButton JBd = new JButton("/");
-    JButton JBc = new JButton(",");
-    JButton JBe = new JButton("ENTER");
-    JButton JBw = new JButton("WIPE");
-    JButton JBpi = new JButton("π");
-    JButton JBsqrt = new JButton("√");
-    JButton JBsqrd = new JButton("x^2");
+    private Orologio or = new Orologio();
+    private JPanel JP1 = new JPanel();
+    private JPanel JP2 = new JPanel();
+    private JTextField ORO = new JTextField();
+    private JTextField JTF = new JTextField();
     
-    String primoTermine;
-    String ope; // + - * /
+    private JButton JB0 = new JButton("0");
+    private JButton JB1 = new JButton("1");
+    private JButton JB2 = new JButton("2");
+    private JButton JB3 = new JButton("3");
+    private JButton JB4 = new JButton("4");
+    private JButton JB5 = new JButton("5");
+    private JButton JB6 = new JButton("6");
+    private JButton JB7 = new JButton("7");
+    private JButton JB8 = new JButton("8");
+    private JButton JB9 = new JButton("9");
+    private JButton JBplus = new JButton("+");
+    private JButton JBminus = new JButton("-");
+    private JButton JBmultiply = new JButton("*");
+    private JButton JBdivide = new JButton("/");
+    private JButton JBcomma = new JButton(",");
+    private JButton JBenter = new JButton("ENTER");
+    private JButton JBwipe = new JButton("WIPE");
+    private JButton JBclearLast = new JButton("CLEAR LAST");
+    private JButton JBsqrt = new JButton("√");
+    private JButton JBsqrd = new JButton("x^2");
+    
+    private String primoTermine;
+    private String ope; // + - * /
     public Finestra(String s){
         super(s);
         ORO.setColumns(5);
@@ -71,9 +64,8 @@ public class Finestra extends JFrame{
         };
         Timer t = new Timer(1000, viaTempo);
         t.start();
-        
-        
-        JBp.addActionListener(
+
+        JBplus.addActionListener(
             new ActionListener(){
                 public void actionPerformed( ActionEvent e){   
                     primoTermine=JTF.getText();
@@ -82,7 +74,7 @@ public class Finestra extends JFrame{
                 }
             }
         );
-        JBm.addActionListener(
+        JBminus.addActionListener(
             new ActionListener(){
                 public void actionPerformed( ActionEvent e){   
                     primoTermine=JTF.getText();
@@ -91,7 +83,7 @@ public class Finestra extends JFrame{
                 }
             }
         );
-        JBx.addActionListener(
+        JBmultiply.addActionListener(
             new ActionListener(){
                 public void actionPerformed( ActionEvent e){   
                     primoTermine=JTF.getText();
@@ -100,7 +92,7 @@ public class Finestra extends JFrame{
                 }
             }
         );
-        JBd.addActionListener(
+        JBdivide.addActionListener(
             new ActionListener(){
                 public void actionPerformed( ActionEvent e){   
                     primoTermine=JTF.getText();
@@ -109,7 +101,7 @@ public class Finestra extends JFrame{
                 }
             }
         );
-        JBe.addActionListener(
+        JBenter.addActionListener(
             new ActionListener(){
                 public void actionPerformed( ActionEvent e){
                     try{
@@ -135,15 +127,16 @@ public class Finestra extends JFrame{
                 }
             }
         );
-        JBw.addActionListener(
+        JBwipe.addActionListener(
             new ActionListener(){
                 public void actionPerformed( ActionEvent e){
                     primoTermine="";
+                    ope="";
                     JTF.setText("");
                 }
             }
         );
-        JBc.addActionListener(
+        JBcomma.addActionListener(
             new ActionListener(){
                 public void actionPerformed( ActionEvent e){
                     if(!JTF.getText().contains(".")){
@@ -152,10 +145,10 @@ public class Finestra extends JFrame{
                 }
             }
         );
-        JBpi.addActionListener(
+        JBclearLast.addActionListener(
             new ActionListener(){
                 public void actionPerformed( ActionEvent e){   
-                    JTF.setText("3.14");
+                    JTF.setText("");
                 }
             }
         );
@@ -246,10 +239,10 @@ public class Finestra extends JFrame{
             }
         );
             
-        JP2.add(JBp);
-        JP2.add(JBm);
-        JP2.add(JBx);
-        JP2.add(JBd);
+        JP2.add(JBplus);
+        JP2.add(JBminus);
+        JP2.add(JBmultiply);
+        JP2.add(JBdivide);
         JP2.add(JB9);
         JP2.add(JB8);
         JP2.add(JB7);
@@ -260,25 +253,17 @@ public class Finestra extends JFrame{
         JP2.add(JB2);
         JP2.add(JB1);
         JP2.add(JB0);
-        JP2.add(JBc);        
-        JP2.add(JBpi);
-        JP2.add(JBw);
+        JP2.add(JBcomma);        
+        JP2.add(JBclearLast);
+        JP2.add(JBwipe);
         JP2.add(JBsqrt);
         JP2.add(JBsqrd);
-        JP2.add(JBe);
+        JP2.add(JBenter);
         add(JP1);
         add(JP2);
-        setSize(400,400);
+        setSize(450,450);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        //addWindowListener(AF);
-        setLayout(new GridLayout(2, 1));
+        setLayout(new GridLayout(2, 1, 0, 0));
         setVisible(true);
-        
-    }
-    public String getTextField(){
-        return JTF.getText();
-    }
-    public void setTextField(String replace){
-        JTF.setText(replace);
     }
 }
